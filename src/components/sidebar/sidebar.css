@@ -1,0 +1,46 @@
+.side-bar{
+    height: calc(100vh - 52px);
+    overflow-y: scroll;
+}
+::-webkit-scrollbar{
+    display: none;
+}
+.side-bar-wrapper{
+    padding: 2rem 3.2rem;
+    position: sticky;
+}
+
+.side-bar-list{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-size: 1.8rem;
+}
+.side-bar-list-item{
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.side-bar-icon{
+    font-size: 2.4rem !important;
+    margin-right: 2.2rem;
+}
+
+.side-bar-button{
+    width: 15rem;
+    border: none;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+}
+.side-bar-hr{
+    margin: 2rem 0;
+}
+
+.side-bar-friend-list{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-size: 1.6rem;
+}
