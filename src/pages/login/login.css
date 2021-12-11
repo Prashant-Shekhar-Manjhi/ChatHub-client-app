@@ -10,7 +10,7 @@
     display: grid;
     grid-template-columns: 1.5fr 1fr;
     gap:9rem;
-    max-width:100rem;
+    max-width:110rem;
     margin: 0 auto;
 }
 
@@ -36,20 +36,19 @@
 }
 
 .login-box{
-    height: 30rem;
     padding:2rem;
     background-color: #fff;
     border-radius: 1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap:1.2rem;
     -webkit-box-shadow: 0px 0px 16px -8px rgba(0,0,0,0.68); 
     box-shadow: 0px 0px 16px -8px rgba(0,0,0,0.68);
 }
 
 .login-input{
     height: 5rem;
-    border-radius: 1rem;
+    border-radius: 7px;
     border: 1px solid grey;
     font-size: 1.8rem;
     padding-left: 2rem;
@@ -57,6 +56,15 @@
 
 .login-input:focus{
     outline: none;
+}
+.login-error-input{
+    border: 2px solid #c92a2a;
+}
+
+.login-error-message{
+    font-size: 1.3rem;
+    color: #c92a2a;
+    margin-left: 0.5rem;
 }
 
 .login-button{
@@ -68,6 +76,14 @@
     font-size: 2rem;
     font-weight: 500;
     cursor: pointer;
+}
+
+.login-button:focus{
+    outline: none;
+}
+
+.login-button:disabled{
+    cursor: not-allowed;
 }
 
 .login-forgot{
@@ -88,6 +104,7 @@
     font-size: 1.6rem;
     font-weight: 500;
     cursor: pointer;
+    justify-self: center;
 }
 
 .login-register-button:hover,

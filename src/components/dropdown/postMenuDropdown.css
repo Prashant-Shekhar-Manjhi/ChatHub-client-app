@@ -1,0 +1,19 @@
+.post-menu-dropdown{
+    position:absolute;
+    font-size: 1.6rem;
+    top:-0.3rem;
+    right: 2rem;
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+.post-menu-items{
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.post-menu-item{
+    margin-left: 1rem;
+    cursor: pointer;
+}

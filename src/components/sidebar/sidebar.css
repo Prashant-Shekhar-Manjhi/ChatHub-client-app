@@ -1,13 +1,14 @@
 .side-bar{
     height: calc(100vh - 52px);
     overflow-y: scroll;
+    position: sticky;
+    top: 5rem;
 }
 ::-webkit-scrollbar{
     display: none;
 }
 .side-bar-wrapper{
     padding: 2rem 3.2rem;
-    position: sticky;
 }
 
 .side-bar-list{

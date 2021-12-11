@@ -4,10 +4,11 @@
     background-color: #1877f2;
     display: flex;
     align-items: center;
-    position: sticky;
     top: 0;
     z-index: 999;
+    position: sticky;
 }
+
 
 .topbar-left{
     flex: 3;
@@ -44,9 +45,10 @@
     flex:4;
     display:flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     color:#fff;
-    
+    padding: 0 2rem;
+    position: relative;
 }
 
 .topbar-link{
@@ -55,13 +57,47 @@
     cursor: pointer;
 }
 
-.topbar-icons{
+.topbar-profile-link{
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.4rem 1.2rem 0.4rem 0.4rem;
+    border-radius: 10rem;
+    cursor: pointer;
+}
+.topbar-profile-link:hover{
+    background-color: #4692f5;
+}
+.topbar-image{
+    width: 3.2rem;
+    height: 3.2rem;
+    border-radius: 50%;
+    object-fit: cover;
+    
+}
+.topbar-username{
+    font-size: 1.6rem;
+    margin-left: 0.8rem;
+    color: #fff;
+    font-weight: 500;
+}
+
+
+.topbar-icons{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 0.6rem;
 }
 .topbar-icon-item{
-    margin-right: 1.5rem;
     cursor:pointer;
     position: relative;
+    padding: 0.8rem;
+    border-radius: 50%;
+    background-color: #4692f5;
+}
+
+.topbar-icon-item:hover{
+    background-color: #5da0f6;
 }
 .topbar-icon{
     font-size: 2.4rem !important;
@@ -74,24 +110,25 @@
     border-radius: 50%;
     color: #fff;
     position:absolute;
-    top:-5px;
-    right: -5px;
+    top: -1px;
+    right: -1px;
     display: flex;
     justify-content: center;
     font-size: 1.2rem;
 }
 
-.topbar-image{
-    width: 3.2rem;
-    height: 3.2rem;
-    border-radius: 50%;
-    object-fit: cover;
-    cursor: pointer;
-}
+
 .logo{
     font-size: 2.4rem;
     margin-left: 20px;
     font-weight: bold;
     color: #fff;
     cursor: pointer;
+}
+
+.topbar-menu{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap:1.6rem
 }
