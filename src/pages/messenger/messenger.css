@@ -1,0 +1,91 @@
+.messenger-container{
+    font-size: 1.6rem;
+    height: calc(100vh - 5.2rem);
+    width:100%;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    gap: 0.5rem;
+}
+
+.messenger-conversation-box{
+    padding:1rem;
+    overflow-y: scroll;
+}
+
+.messenger-conversation-box-wrapper{
+    height: 85rem;
+    overflow-y: scroll;
+    padding: 1rem;
+    border-radius: 8px;
+    -webkit-box-shadow: 0px 0px 16px -8px rgba(0,0,0,0.68); 
+    box-shadow: 0px 0px 16px -8px rgba(0,0,0,0.68);
+}
+.messenger-conversation-search{
+    font-size: 1.4rem;
+    width: 80%;
+    padding: 0.6rem;
+    border: none;
+    border-bottom: 0.1rem solid #191919;
+    margin-bottom: 2rem;
+    height:3.2rem;
+}
+
+.messenger-conversation-search:focus{
+    outline: none;
+   
+}
+.messenger-chat-box{
+    padding:1rem;
+}
+.messenger-chat-box-wrapper{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    border-radius: 8px;
+    -webkit-box-shadow: 0px 0px 16px -8px rgba(0,0,0,0.68); 
+    box-shadow: 0px 0px 16px -8px rgba(0,0,0,0.68);
+}
+
+.messenger-chat-box-top{
+    height: 72rem;
+    overflow-y: scroll;
+    margin-bottom: 0.5rem;
+}
+
+.messenger-chat-box-bottom{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.messenger-chat-box-input{
+    width: 75%;
+    height: 10rem;
+    padding: 1rem;
+    font-size: 1.6rem;
+}
+.messenger-chat-box-input:focus{
+    outline: none;
+}
+.message-send-btn{
+    font-size: 1.8rem;
+    color: #fff;
+    background-color: #1c7ed6;
+    border-radius: 8px;
+    border: none;
+    padding: 1rem 2rem;
+    cursor: pointer;
+}
+
+.messenger-online-box{
+    overflow-y: scroll;
+    padding: 1rem;
+}
+
+.messenger-online-box-wrapper{
+    padding: 1rem;
+    border-radius: 8px;
+    -webkit-box-shadow: 0px 0px 16px -8px rgba(0,0,0,0.68); 
+    box-shadow: 0px 0px 16px -8px rgba(0,0,0,0.68);
+}
+
+

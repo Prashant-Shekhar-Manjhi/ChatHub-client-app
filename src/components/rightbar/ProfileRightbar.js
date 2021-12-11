@@ -8,13 +8,12 @@ export default function ProfileRightbar({user}) {
     const PF=process.env.REACT_APP_PUBLIC_FOLDER;
     const [friends, setFriends] = useState([]);
     const loggedInUser = useContext(AuthContext).user;
-    const [isFollow, setIsFollow] = useState(false);
+    const [isFollow, setIsFollow] = useState(loggedInUser.followings.includes(user?._id));
+    const {error,isFetching, dispatch} =  useContext(AuthContext);
     
     useEffect(()=>{
         setIsFollow(loggedInUser.followings.includes(user?._id));
-    },[loggedInUser, user?._id]);
-    console.log(isFollow);
-    console.log(friends);
+    },[loggedInUser, user]);
 
     useEffect(()=>{
         const getFriends = async ()=>{
@@ -28,27 +27,24 @@ export default function ProfileRightbar({user}) {
         getFriends();
     },[user._id]);
 
-    const follow = async ()=>{
+    const handleClick = async ()=>{
         try{
-            await axios.put("/user/"+user._id+"/follow",{id: loggedInUser._id});
-        }catch(err){
-            console.log(err);
+            if(isFollow){
+                await axios.put("/user/"+user._id+"/unfollow",{id: loggedInUser._id});
+                dispatch({type:"UNFOLLOW",payload:user._id});
+            }else{
+                await axios.put("/user/"+user._id+"/follow",{id: loggedInUser._id});
+                dispatch({type:"FOLLOW",payload:user._id});
+            }
+        }catch(error){
+            console.log(error);
         }
-        setIsFollow(true);
-    }
-
-    const unfollow = async ()=>{      
-        try{
-            await axios.put("/user/"+user._id+"/unfollow",{id: loggedInUser._id});
-        }catch(err){
-            console.log(err);
-        }     
-        setIsFollow(false); 
+        setIsFollow(!isFollow);
     }
 
     let button;
     if(loggedInUser._id !== user._id){
-        button = <button className="profile-right-bar-follow-button" onClick={isFollow ? unfollow : follow}>
+        button = <button className="profile-right-bar-follow-button" onClick={handleClick}>
             {isFollow ? "Unfollow" : "follow"}
         </button>
     }

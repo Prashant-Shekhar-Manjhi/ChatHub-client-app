@@ -20,6 +20,26 @@ const AuthReducer = (state,action)=>{
                 isFetching: false,
                 error: action.payload,
             };
+
+        case "FOLLOW":
+            const updatedUser = {...state.user, followings:[...state.user.followings, action.payload]};
+            localStorage.setItem("loggedInUser", JSON.stringify(updatedUser));
+            return {
+                ...state,
+                user: updatedUser
+            };
+        case "UNFOLLOW":
+            const _updatedUser =  {
+                ...state.user,
+                followings: state.user.followings.filter((following)=>{
+                    return (following !== action.payload);
+                })
+            };
+            localStorage.setItem("loggedInUser", JSON.stringify(_updatedUser));
+            return {
+                ...state,
+                user: _updatedUser
+            };
         default:
             return state
     }

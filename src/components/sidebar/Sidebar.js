@@ -1,5 +1,6 @@
 import React from 'react'
 import "./sidebar.css";
+import { useNavigate } from 'react-router';
 import {RssFeed,
     Chat,
     PlayCircleFilledOutlined,
@@ -11,8 +12,8 @@ import {RssFeed,
     School} from "@mui/icons-material";
 import {Users} from "../../dummyDate";
 import CloseFriend from '../closeFriends./CloseFriend';
-
 export default function Sidebar() {
+    const navigate = useNavigate();
     return (
         <div className="side-bar">
             <div className="side-bar-wrapper">
@@ -21,14 +22,17 @@ export default function Sidebar() {
                         <RssFeed className="side-bar-icon"/>
                         <span className="side-bar-list-item-text">Feed</span>
                     </li>
-                    <li className="side-bar-list-item">
+            
+                    <li className="side-bar-list-item" onClick={()=>(navigate("/messenger"))}>
                         <Chat className="side-bar-icon"/>
                         <span className="side-bar-list-item-text">Chats</span>
                     </li>
+                    
                     <li className="side-bar-list-item">
                         <PlayCircleFilledOutlined className="side-bar-icon"/>
                         <span className="side-bar-list-item-text">Videos</span>
                     </li>
+                       
                     <li className="side-bar-list-item">
                         <Group className="side-bar-icon"/>
                         <span className="side-bar-list-item-text">Groups</span>
