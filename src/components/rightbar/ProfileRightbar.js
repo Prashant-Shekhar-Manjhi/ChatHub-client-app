@@ -9,7 +9,7 @@ export default function ProfileRightbar({user}) {
     const [friends, setFriends] = useState([]);
     const loggedInUser = useContext(AuthContext).user;
     const [isFollow, setIsFollow] = useState(loggedInUser.followings.includes(user?._id));
-    const {error,isFetching, dispatch} =  useContext(AuthContext);
+    const {dispatch} =  useContext(AuthContext);
     
     useEffect(()=>{
         setIsFollow(loggedInUser.followings.includes(user?._id));
