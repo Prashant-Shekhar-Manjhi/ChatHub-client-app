@@ -14,6 +14,7 @@
 }
 
 .messenger-conversation-box-wrapper{
+    height: calc(100vh - 11.5rem);
     overflow-y: scroll;
     padding: 1rem;
     border-radius: 8px;
@@ -44,6 +45,9 @@
     box-shadow: 0px 0px 16px -8px rgba(0,0,0,0.68);
 }
 .messenger-chat-box-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     height:5.6rem;
 }
 
@@ -54,6 +58,10 @@
 }
 .chatbox-header{
     padding: 1rem;
+}
+.messenger-chat-box-menu{
+    font-size: 2.2rem;
+    cursor: pointer;
 }
 
 .messenger-chat-box-bottom{
@@ -89,10 +97,6 @@
     opacity: 0.5;
 }
 
-.messenger-online-box{
-    overflow-y: scroll;
-    padding: 1rem;
-}
 
 .messenger-online-box-wrapper{
     padding: 1rem;

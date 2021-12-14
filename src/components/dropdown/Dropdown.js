@@ -18,10 +18,12 @@ export default function Dropdown({user}) {
                     </li>
                 </Link>
                 <hr className="dropdown-hr"/>
-                <li className="dropdown-menu-item">
-                    <Settings className="dropdown-menu-item-icon"/>
-                    <span className="dropdown-menu-item-text">Profile Settings</span>
-                </li>
+                <Link to="/settings" style={{textDecoration:"none"}}>
+                    <li className="dropdown-menu-item">
+                        <Settings className="dropdown-menu-item-icon"/>
+                        <span className="dropdown-menu-item-text">Profile Settings</span>
+                    </li>
+                </Link>
                 <li className="dropdown-menu-item" onClick={logoutHandler}>
                     <Logout className="dropdown-menu-item-icon"/>
                     <span className="dropdown-menu-item-text">logout</span>

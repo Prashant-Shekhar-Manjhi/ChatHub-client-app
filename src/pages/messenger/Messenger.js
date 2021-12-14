@@ -4,7 +4,9 @@ import Conversation from '../../components/conversation/Conversation';
 import Message from '../../components/message/Message';
 import "./messenger.css";
 import Online from '../../components/online/Online';
-import {Users} from "../../dummyDate";
+import ChatOnline from "../../components/chatOnline/ChatOnline";
+import {MoreVert} from "@mui/icons-material";
+// import {Users} from "../../dummyDate";
 import { AuthContext } from '../../context/AuthContext';
 import axios from "axios";
 import {io} from "socket.io-client";
@@ -17,6 +19,7 @@ export default function Messenger() {
     const [arrivalMessage, setArrivalMessage] = useState(null);
     const [messageInput, setMessageInput] = useState('');
     const [friend, setFriend] = useState(null);
+    const [onlineUsers, setOnlineUsers] = useState([]);
     const scrollRef = useRef();
     const socket = useRef();
 
@@ -34,8 +37,8 @@ export default function Messenger() {
 
     useEffect(()=>{
         socket.current.emit("addUser", loggedInUser._id);
-        socket.current.on("getUsers",user=>{
-            console.log(user);
+        socket.current.on("getUsers",users=>{
+            setOnlineUsers(loggedInUser.followings.filter((f) => users.some((u) => u.userId === f)));
         });
     },[loggedInUser]);
 
@@ -103,7 +106,11 @@ export default function Messenger() {
         scrollRef.current?.scrollIntoView({
             behavior:"smooth"
         })
-    },[messages])
+    },[messages]);
+
+    const messengerMenuHandler = ()=>{
+        console.log("chat menu");
+    }
     return (
         <Fragment>
             <Topbar/>
@@ -127,23 +134,22 @@ export default function Messenger() {
                 </div>
                 <div className="messenger-chat-box">
                    {currentChat ? <div className="messenger-chat-box-wrapper">
-                       <div className="messenger-chat-box-header">
+                       <div className="messenger-chat-box-header" >
                             <Online user={friend}/>
+                            <MoreVert className="messenger-chat-box-menu" onClick={messengerMenuHandler}/>
                        </div>
                        <hr />
                         <div className="messenger-chat-box-top">
                             {messages.map((message)=>{
                                 return(<div key={message._id}  ref={scrollRef}>
                                         <Message 
-                                            
                                             message={message} 
                                             own={loggedInUser?._id === message.senderId} 
                                             friend={friend}
-                                        />
+                                        />       
                                     </div>);      
                                 })
-                            }
-                                
+                            }        
                         </div>
                         <form className="messenger-chat-box-bottom" onSubmit={SendMessageHandler}>
                             <textarea 
@@ -157,9 +163,7 @@ export default function Messenger() {
                     </div> : <div className="messenger-chat-box-message"><span >Open a Conversation for Chat...</span></div>}
                 </div>
                 <div className="messenger-online-box">
-                    <div className="messenger-online-box-wrapper">
-                    {Users.map(u=><Online key={u.id} user={u}/>)}
-                    </div>
+                   <ChatOnline onlineUsers={onlineUsers} loggedInUserId = {loggedInUser?._id} setCurrentChat={setCurrentChat}/>
                 </div>
             </div>
         </Fragment>

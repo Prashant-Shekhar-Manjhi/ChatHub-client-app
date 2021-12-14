@@ -1,0 +1,53 @@
+
+.chat-online-container{
+    margin-top: 1rem;
+    padding: 2rem;
+    border-radius: 8px;
+    -webkit-box-shadow: 0px 0px 16px -8px rgba(0,0,0,0.68); 
+    box-shadow: 0px 0px 16px -8px rgba(0,0,0,0.68);
+    height: calc(100vh - 13rem);
+    overflow-y: scroll;
+
+}
+
+.chat-online-heading{
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+}
+.chat-online-friend{
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    padding: 1rem;
+    border-radius: 8px;
+}
+.chat-online-friend:hover{
+    background-color: #e6e6e6;
+}
+.chat-online-image-container{
+    position: relative;
+}
+
+.chat-online-image{
+    width: 4.4rem;
+    height: 4.4rem;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.chat-online-badge{
+    width: 1.2rem;
+    height: 1.2rem;
+    border-radius: 50%;
+    background-color: limegreen;
+    position:absolute;
+    top:-1;
+    right:0;
+    border:2px solid white;
+}
+
+.chat-online-name{
+    font-weight: 500;
+    font-size: 1.6rem;
+    margin-left: 2rem;
+}
