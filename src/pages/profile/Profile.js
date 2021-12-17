@@ -29,7 +29,7 @@ export default function Profile() {
                    <div className="profile-right-top">
                        <div className="profile-cover">
                             <img className="profile-cover-image" src={user.coverPicture ? PF+ user.coverPicture:PF+"person/nocover.jpg"} alt=""/>
-                            <img className="profile-user-image" src={user.coverPicture ? PF+ user.profilePicture:PF+"person/avatar.png"} alt=""/>
+                            <img className="profile-user-image" src={user.profilePicture ? PF+ user.profilePicture:PF+"person/avatar.png"} alt=""/>
                         </div>
                         <div className="profile-info">
                             <h4 className="profile-info-name">{user.username}</h4>

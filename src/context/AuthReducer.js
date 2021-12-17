@@ -22,26 +22,37 @@ const AuthReducer = (state,action)=>{
             };
 
         case "FOLLOW":
-            const updatedUser = {...state.user, followings:[...state.user.followings, action.payload]};
-            localStorage.setItem("loggedInUser", JSON.stringify(updatedUser));
+            const followedUser = {...state.user, followings:[...state.user.followings, action.payload]};
+            localStorage.setItem("loggedInUser", JSON.stringify(followedUser));
             return {
                 ...state,
-                user: updatedUser
+                user: followedUser
             };
         case "UNFOLLOW":
-            const _updatedUser =  {
+            const unfollowedUser =  {
                 ...state.user,
                 followings: state.user.followings.filter((following)=>{
                     return (following !== action.payload);
                 })
             };
-            localStorage.setItem("loggedInUser", JSON.stringify(_updatedUser));
+            localStorage.setItem("loggedInUser", JSON.stringify(unfollowedUser));
             return {
                 ...state,
-                user: _updatedUser
+                user: unfollowedUser
             };
+
+        case "UPDATE_USER":
+            const  updatedUser = {
+                ...state.user,
+                ...action.payload
+            }
+            localStorage.setItem("loggedInUser", JSON.stringify(updatedUser));
+            return {
+                ...state,
+                user: updatedUser
+            }
         default:
-            return state
+            return state;
     }
 }
 

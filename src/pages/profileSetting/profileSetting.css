@@ -36,6 +36,7 @@
     height: 15rem;
     width: 15rem;
     border-radius: 50%;
+    object-fit: cover;
 }
 
 .profile-setting-image-icon-container{
@@ -79,12 +80,34 @@
     border: 1px solid #868e96;
     width: 50%;
     border-radius: 3px;
+    height: 2.4rem;
+    position: relative;
+}
+
+.profile-setting-input-icon-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.prev-user{
+    padding: 1rem;
+    font-size: 1.6rem;
+}
+
+.profile-setting-input-icon{
+    font-size: 1.6rem !important;
+    margin-right: 3px;
+    position: absolute;
+    right: 0;
+    cursor: pointer;
 }
 
 .profile-setting-input{
     font-size: 1.4rem;
     border: none;
-    height: 2.4rem;
+    /* height: 2.4rem; */
     padding: 0.2rem;
     width: 100%;
 }
@@ -98,9 +121,17 @@
     cursor: pointer;
     outline: none;
 }
+.profile-setting-input-description-container{
+    width: 50%;
+}
+
+.prev-user-desc{
+    text-align: start;
+    font-size: 1.6rem;
+}
 
 .profile-setting-input-description{
-    width: 100%;
+    width:80%;
     height: 6.4rem;
     padding: 1rem;
     font-size: 1.6rem;

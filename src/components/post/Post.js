@@ -50,7 +50,7 @@ export default function Post(props) {
                     <div className="post-top-left">
                         <Link to={`/profile/${user._id}`}>
                             <img className="post-profile-image" 
-                                src={PF+user.profilePicture || PF+"person/avatar.png"} 
+                                src={loggedInUser?.profilePicture ? PF+loggedInUser.profilePicture : PF+"person/avatar.png"}
                                 alt="" />
                         </Link>                     
                         <span className="post-username">{user.username}</span>
@@ -59,7 +59,7 @@ export default function Post(props) {
                     <div className="post-top-right">
                         <MoreVert className="post-top-icon" onClick={postMenuHandler}/>
                     </div>
-                    {showMenu && <PostMenuDropdown/>}
+                    {showMenu && <PostMenuDropdown loggedInUser={loggedInUser} post={props.post}/>}
                 </div>
                 <div className="post-center">
                     <span className="post-text">{props.post.description}</span>

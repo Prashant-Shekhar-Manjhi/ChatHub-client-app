@@ -21,3 +21,8 @@ export const unFollow = (userId)=>({
     type:"UNFOLLOW",
     payload:userId
 })
+
+export const updateUser = (user)=>({
+    type:"UPDATE_USER",
+    payload: user
+})

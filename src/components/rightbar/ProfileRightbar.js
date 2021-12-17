@@ -48,7 +48,6 @@ export default function ProfileRightbar({user}) {
             {isFollow ? "Unfollow" : "follow"}
         </button>
     }
-    console.log(loggedInUser._id, user._id)
     return (
         <div className="right-bar">
             <div className="right-bar-wrapper">
@@ -68,7 +67,7 @@ export default function ProfileRightbar({user}) {
                     <div className="right-bar-info-item">
                         <span className="right-bar-info-key">Relationship:</span>
                         <span className="right-bar-info-value">
-                            {user.relationship === 1 ? "Single" : user.relationship === 2 ? "Married" : "Complicated"}
+                            {user.relationship}
                         </span>
                     </div>
                 </div>
